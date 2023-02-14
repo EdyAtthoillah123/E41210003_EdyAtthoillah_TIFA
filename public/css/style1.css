@@ -1,0 +1,6 @@
+.content{
+    position: absolute;
+    top: 60%;
+    left: 8%;
+    transform: translateY(-50%);
+}

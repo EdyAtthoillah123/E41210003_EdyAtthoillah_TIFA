@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\cobacontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +14,49 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('profile');
 });
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/about', function () {
+    return view('about');
 });
+
+Route::get('/blog', function () {
+    return view('blog');
+});
+
+
+
+
+Route::get('/hello', function () {
+    return "HELLO WORLD"; 
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
+Route::get('/profile', function () {
+    return view('profile', [
+        "nama" => "Edy Atthoillah",
+        "email" => "edyatthoillah123@gmail.com",
+        "alamat" => "Jl.nangka No.113 RT.002 RW.11 Kepuharjo Lumajang"
+    ]);
+});
+
+
+Route::get('/index', function () {
+    return "landing page";
+});
+
+// ID parameter
+//ini bisa dibuat untuk session 
+Route::get('/index/{id}/{nama}', function ($id, $nama) {
+    return "Kami Kelompok $id nama $nama";
+});
+
+
+// coba route menggunakan controller
+Route::get('/cobacoba', [cobacontroller::class, 'index']);
+Route::get('/controllogin', [cobacontroller::class, 'login']);
+// Route::post('/dashboard', [cobacontroller::class, 'login']);
+Route::post("/dashboard", "cobacontroller@dashboard");
