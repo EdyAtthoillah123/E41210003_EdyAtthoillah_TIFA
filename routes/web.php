@@ -13,8 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('profile');
+// });
+
 Route::get('/', function () {
     return view('profile');
+});
+
+Route::get('/coba', function () {
+    return view('cobajs');
 });
 
 Route::get('/about', function () {
@@ -25,9 +33,6 @@ Route::get('/blog', function () {
     return view('blog');
 });
 
-
-
-
 Route::get('/hello', function () {
     return "HELLO WORLD"; 
 });
@@ -35,6 +40,7 @@ Route::get('/hello', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
 Route::get('/profile', function () {
     return view('profile', [
         "nama" => "Edy Atthoillah",
